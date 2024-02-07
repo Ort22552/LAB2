@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm Tue Feb 06 21:34:54 2024
+AVRASM ver. 2.2.8  C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm Wed Feb 07 08:33:44 2024
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m328Pdef.inc'
 C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm(11): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\M328PDEF.inc'
@@ -1112,11 +1112,11 @@ C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm(11): Including file 'C
 00002b 9aa8                      	SBI TIFR0, TOV0
                                  
 00002c 9513                      	INC R17
-00002d 301a                      	CPI R17, 10 
+00002d 3614                      	CPI R17, 100 
 00002e f7b9                      	BRNE LOOP
 00002f 940e 003a                 	CALL CONTADOR
 000031 2711                      	CLR R17
-000032 940e 005c                 	CALL ACTUALIZAR1
+000032 940e 0060                 	CALL ACTUALIZAR1
                                  
                                  
                                  
@@ -1195,153 +1195,334 @@ C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm(11): Including file 'C
 000045 9508                      RET 
                                  
                                  SUMAR2: 
-000046 95e3                      INC R30; SE SUMA 1 AL REGISTRO
-000047 31e0                      CPI R30, 16 ; SE COMPARA SI EL VALOR EN EL REGISTRO ES MAYOR A 15
-000048 f009                      BREQ REINICIAR2; SE SALTA EL RET SI EL VALOR ES MAYOR A 15
-000049 9508                      RET
+000046 9533                      INC R19; SE SUMA 1 AL REGISTRO
+000047 1732                      CP R19, R18 ; SE COMPARA SI EL VALOR EN EL REGISTRO ES MAYOR A 15
+000048 f019                      BREQ REINICIAR2; SE SALTA EL RET SI EL VALOR ES MAYOR A 15
+000049 3130                      CPI R19, 16 ; SE COMPARA SI EL VALOR EN EL REGISTRO ES MAYOR A 15
+00004a f009                      BREQ REINICIAR2; SE SALTA EL RET SI EL VALOR ES MAYOR A 15
+00004b 9508                      RET
                                  REINICIAR2: 
-00004a e0e0                      LDI R30, 0; SE REINICIA EL CONTADOR
-00004b 9508                      RET 
+00004c e030                      LDI R19, 0; SE REINICIA EL CONTADOR
+00004d 9508                      RET 
                                  
                                  SUMARTOTAL:
-00004c e0f0                      LDI R31, 0; SE REINICIA EL REGISTRO 32
-00004d 0ffd                      ADD R31, R29; SE SUMA EL VALOR DEL PRIMER REGISTRO 
-00004e 0ffe                      ADD R31, R30; SE SUMA EL VALORDEL SEGUNDO REGISTRO
-00004f 9508                      RET 
+00004e e0f0                      LDI R31, 0; SE REINICIA EL REGISTRO 32
+00004f 0ffd                      ADD R31, R29; SE SUMA EL VALOR DEL PRIMER REGISTRO 
+000050 0ffe                      ADD R31, R30; SE SUMA EL VALORDEL SEGUNDO REGISTRO
+000051 9508                      RET 
                                  
                                  RESTAR1:
-000050 50d1                      SUBI R29, 1; SE RESTA 1 AL REGISTRO 
-000051 3fdf                      CPI R29, -1; SE COMPARA SI EL VALOR EN EL REGISTRO ES MENOR A 0
-000052 f009                      BREQ REINICIAR3; SE SALTA EL RET SI EL VALOR ES MENOR A 0
-000053 9508                      RET
-                                 REINICIAR3:
-000054 e0df                      LDI R29,15; SE LLEVA HASTA 15 EL CONTADOR
+000052 50d1                      SUBI R29, 1; SE RESTA 1 AL REGISTRO 
+000053 3fdf                      CPI R29, -1; SE COMPARA SI EL VALOR EN EL REGISTRO ES MENOR A 0
+000054 f009                      BREQ REINICIAR3; SE SALTA EL RET SI EL VALOR ES MENOR A 0
 000055 9508                      RET
+                                 REINICIAR3:
+000056 e0df                      LDI R29,15; SE LLEVA HASTA 15 EL CONTADOR
+000057 9508                      RET
                                  
                                  RESTAR2:
-000056 50e1                      SUBI R30, 1; SE RESTA 1 AL REGISTRO 
-000057 3fef                      CPI R30, -1; SE COMPARA SI EL VALOR EN EL REGISTRO ES MENOR A 0
-000058 f009                      BREQ REINICIAR4; SE SALTA EL RET SI EL VALOR ES MENOR A 0
-000059 9508                      RET
+000058 5031                      SUBI R19, 1; SE RESTA 1 AL REGISTRO 
+000059 1732                      CP R19,R18 ; SE COMPARA SI EL VALOR EN EL REGISTRO ES MENOR A 0
+00005a f019                      BREQ REINICIAR4; SE SALTA EL RET SI EL VALOR ES MENOR A 0
+00005b 3f3f                      CPI R19, -1; SE COMPARA SI EL VALOR EN EL REGISTRO ES MENOR A 0
+00005c f009                      BREQ REINICIAR4; SE SALTA EL RET SI EL VALOR ES MENOR A 0
+00005d 9508                      RET
                                  REINICIAR4:
-00005a e0ef                      LDI R30,15; SE LLEVA HASTA 15 EL CONTADOR
-00005b 9508                      RET
+00005e e03f                      LDI R19,15; SE LLEVA HASTA 15 EL CONTADOR
+00005f 9508                      RET
                                  
                                  ACTUALIZAR1: 
-00005c 3021                      CPI R18, 1; COMPARA SI ES UNO 
-00005d f421                      BRNE DOS1
-00005e 9a2d                      SBI PORTB, PB5 ; PRIMER BIT
-00005f 982c                      CBI PORTB, PB4 ; SEGUNDO BIT 
-000060 982b                      CBI PORTB, PB3 ; TERCER BIT
-000061 982a                      CBI PORTB, PB2 ; CUARTO BIT 
+000060 3021                      CPI R18, 1; COMPARA SI ES UNO 
+000061 f421                      BRNE DOS1
+000062 9a2d                      SBI PORTB, PB5 ; PRIMER BIT
+000063 982c                      CBI PORTB, PB4 ; SEGUNDO BIT 
+000064 982b                      CBI PORTB, PB3 ; TERCER BIT
+000065 982a                      CBI PORTB, PB2 ; CUARTO BIT 
                                  DOS1:
-000062 3022                      CPI R18, 2; COMPARA SI ES DOS 
-000063 f421                      BRNE TRES1
-000064 982d                      CBI PORTB, PB5 ; PRIMER BIT
-000065 9a2c                      SBI PORTB, PB4 ; SEGUNDO BIT 
-000066 982b                      CBI PORTB, PB3 ; TERCER BIT
-000067 982a                      CBI PORTB, PB2 ; CUARTO BIT
+000066 3022                      CPI R18, 2; COMPARA SI ES DOS 
+000067 f421                      BRNE TRES1
+000068 982d                      CBI PORTB, PB5 ; PRIMER BIT
+000069 9a2c                      SBI PORTB, PB4 ; SEGUNDO BIT 
+00006a 982b                      CBI PORTB, PB3 ; TERCER BIT
+00006b 982a                      CBI PORTB, PB2 ; CUARTO BIT
                                  TRES1:
-000068 3023                      CPI R18, 3; COMPARA SI ES TRES
-000069 f421                      BRNE CUATRO1
-00006a 9a2d                      SBI PORTB, PB5 ; PRIMER BIT
-00006b 9a2c                      SBI PORTB, PB4 ; SEGUNDO BIT 
-00006c 982b                      CBI PORTB, PB3 ; TERCER BIT
-00006d 982a                      CBI PORTB, PB2 ; CUARTO BIT
+00006c 3023                      CPI R18, 3; COMPARA SI ES TRES
+00006d f421                      BRNE CUATRO1
+00006e 9a2d                      SBI PORTB, PB5 ; PRIMER BIT
+00006f 9a2c                      SBI PORTB, PB4 ; SEGUNDO BIT 
+000070 982b                      CBI PORTB, PB3 ; TERCER BIT
+000071 982a                      CBI PORTB, PB2 ; CUARTO BIT
                                  CUATRO1:
-00006e 3024                      CPI R18, 4; COMPARA SI ES CUATRO 
-00006f f421                      BRNE CINCO1
-000070 982d                      CBI PORTB, PB5 ; PRIMER BIT
-000071 982c                      CBI PORTB, PB4 ; SEGUNDO BIT 
-000072 9a2b                      SBI PORTB, PB3 ; TERCER BIT
-000073 982a                      CBI PORTB, PB2 ; CUARTO BIT
+000072 3024                      CPI R18, 4; COMPARA SI ES CUATRO 
+000073 f421                      BRNE CINCO1
+000074 982d                      CBI PORTB, PB5 ; PRIMER BIT
+000075 982c                      CBI PORTB, PB4 ; SEGUNDO BIT 
+000076 9a2b                      SBI PORTB, PB3 ; TERCER BIT
+000077 982a                      CBI PORTB, PB2 ; CUARTO BIT
                                  CINCO1:
-000074 3025                      CPI R18, 5; COMPARA SI ES CINCO  
-000075 f421                      BRNE SEIS1
-000076 9a2d                      SBI PORTB, PB5 ; PRIMER BIT
-000077 982c                      CBI PORTB, PB4 ; SEGUNDO BIT 
-000078 9a2b                      SBI PORTB, PB3 ; TERCER BIT
-000079 982a                      CBI PORTB, PB2 ; CUARTO BIT
+000078 3025                      CPI R18, 5; COMPARA SI ES CINCO  
+000079 f421                      BRNE SEIS1
+00007a 9a2d                      SBI PORTB, PB5 ; PRIMER BIT
+00007b 982c                      CBI PORTB, PB4 ; SEGUNDO BIT 
+00007c 9a2b                      SBI PORTB, PB3 ; TERCER BIT
+00007d 982a                      CBI PORTB, PB2 ; CUARTO BIT
                                  SEIS1:
-00007a 3026                      CPI R18, 6; COMPARA SI ES SEIS
-00007b f421                      BRNE SIETE1
-00007c 982d                      CBI PORTB, PB5 ; PRIMER BIT
-00007d 9a2c                      SBI PORTB, PB4 ; SEGUNDO BIT 
-00007e 9a2b                      SBI PORTB, PB3 ; TERCER BIT
-00007f 982a                      CBI PORTB, PB2 ; CUARTO BIT
+00007e 3026                      CPI R18, 6; COMPARA SI ES SEIS
+00007f f421                      BRNE SIETE1
+000080 982d                      CBI PORTB, PB5 ; PRIMER BIT
+000081 9a2c                      SBI PORTB, PB4 ; SEGUNDO BIT 
+000082 9a2b                      SBI PORTB, PB3 ; TERCER BIT
+000083 982a                      CBI PORTB, PB2 ; CUARTO BIT
                                  SIETE1:
-000080 3027                      CPI R18, 7; COMPARA SI ES SIETE 
-000081 f421                      BRNE OCHO1
-000082 9a2d                      SBI PORTB, PB5 ; PRIMER BIT
-000083 9a2c                      SBI PORTB, PB4 ; SEGUNDO BIT 
-000084 9a2b                      SBI PORTB, PB3 ; TERCER BIT
-000085 982a                      CBI PORTB, PB2 ; CUARTO BIT
+000084 3027                      CPI R18, 7; COMPARA SI ES SIETE 
+000085 f421                      BRNE OCHO1
+000086 9a2d                      SBI PORTB, PB5 ; PRIMER BIT
+000087 9a2c                      SBI PORTB, PB4 ; SEGUNDO BIT 
+000088 9a2b                      SBI PORTB, PB3 ; TERCER BIT
+000089 982a                      CBI PORTB, PB2 ; CUARTO BIT
                                  OCHO1:
-000086 3028                      CPI R18, 8; COMPARA SI ES OCHO 
-000087 f421                      BRNE NUEVE1
-000088 982d                      CBI PORTB, PB5 ; PRIMER BIT
-000089 982c                      CBI PORTB, PB4 ; SEGUNDO BIT 
-00008a 982b                      CBI PORTB, PB3 ; TERCER BIT
-00008b 9a2a                      SBI PORTB, PB2 ; CUARTO BIT
+00008a 3028                      CPI R18, 8; COMPARA SI ES OCHO 
+00008b f421                      BRNE NUEVE1
+00008c 982d                      CBI PORTB, PB5 ; PRIMER BIT
+00008d 982c                      CBI PORTB, PB4 ; SEGUNDO BIT 
+00008e 982b                      CBI PORTB, PB3 ; TERCER BIT
+00008f 9a2a                      SBI PORTB, PB2 ; CUARTO BIT
                                  NUEVE1:
-00008c 3029                      CPI R18, 9; COMPARA SI ES NUEVE 
-00008d f421                      BRNE DIEZ1
-00008e 9a2d                      SBI PORTB, PB5 ; PRIMER BIT
-00008f 982c                      CBI PORTB, PB4 ; SEGUNDO BIT 
-000090 982b                      CBI PORTB, PB3 ; TERCER BIT
-000091 9a2a                      SBI PORTB, PB2 ; CUARTO BIT
+000090 3029                      CPI R18, 9; COMPARA SI ES NUEVE 
+000091 f421                      BRNE DIEZ1
+000092 9a2d                      SBI PORTB, PB5 ; PRIMER BIT
+000093 982c                      CBI PORTB, PB4 ; SEGUNDO BIT 
+000094 982b                      CBI PORTB, PB3 ; TERCER BIT
+000095 9a2a                      SBI PORTB, PB2 ; CUARTO BIT
                                  DIEZ1:
-000092 302a                      CPI R18, 10; COMPARA SI ES DIEZ 
-000093 f421                      BRNE ONCE1
-000094 982d                      CBI PORTB, PB5 ; PRIMER BIT
-000095 9a2c                      SBI PORTB, PB4 ; SEGUNDO BIT 
-000096 982b                      CBI PORTB, PB3 ; TERCER BIT
-000097 9a2a                      SBI PORTB, PB2 ; CUARTO BIT}
+000096 302a                      CPI R18, 10; COMPARA SI ES DIEZ 
+000097 f421                      BRNE ONCE1
+000098 982d                      CBI PORTB, PB5 ; PRIMER BIT
+000099 9a2c                      SBI PORTB, PB4 ; SEGUNDO BIT 
+00009a 982b                      CBI PORTB, PB3 ; TERCER BIT
+00009b 9a2a                      SBI PORTB, PB2 ; CUARTO BIT}
                                  ONCE1:
-000098 302b                      CPI R18, 11; COMPARA SI ES ONCE 
-000099 f421                      BRNE DOCE1
-00009a 9a2d                      SBI PORTB, PB5 ; PRIMER BIT
-00009b 9a2c                      SBI PORTB, PB4 ; SEGUNDO BIT 
-00009c 982b                      CBI PORTB, PB3 ; TERCER BIT
-00009d 9a2a                      SBI PORTB, PB2 ; CUARTO BIT
+00009c 302b                      CPI R18, 11; COMPARA SI ES ONCE 
+00009d f421                      BRNE DOCE1
+00009e 9a2d                      SBI PORTB, PB5 ; PRIMER BIT
+00009f 9a2c                      SBI PORTB, PB4 ; SEGUNDO BIT 
+0000a0 982b                      CBI PORTB, PB3 ; TERCER BIT
+0000a1 9a2a                      SBI PORTB, PB2 ; CUARTO BIT
                                  DOCE1:
-00009e 302c                      CPI R18, 12; COMPARA SI ES DOCE 
-00009f f421                      BRNE TRECE1
-0000a0 982d                      CBI PORTB, PB5 ; PRIMER BIT
-0000a1 982c                      CBI PORTB, PB4 ; SEGUNDO BIT 
-0000a2 9a2b                      SBI PORTB, PB3 ; TERCER BIT
-0000a3 9a2a                      SBI PORTB, PB2 ; CUARTO BIT
+0000a2 302c                      CPI R18, 12; COMPARA SI ES DOCE 
+0000a3 f421                      BRNE TRECE1
+0000a4 982d                      CBI PORTB, PB5 ; PRIMER BIT
+0000a5 982c                      CBI PORTB, PB4 ; SEGUNDO BIT 
+0000a6 9a2b                      SBI PORTB, PB3 ; TERCER BIT
+0000a7 9a2a                      SBI PORTB, PB2 ; CUARTO BIT
                                  TRECE1:
-0000a4 302d                      CPI R18, 13; COMPARA SI ES TRECE 
-0000a5 f421                      BRNE CATORCE1
-0000a6 9a2d                      SBI PORTB, PB5 ; PRIMER BIT
-0000a7 982c                      CBI PORTB, PB4 ; SEGUNDO BIT 
-0000a8 9a2b                      SBI PORTB, PB3 ; TERCER BIT
-0000a9 9a2a                      SBI PORTB, PB2 ; CUARTO BIT
+0000a8 302d                      CPI R18, 13; COMPARA SI ES TRECE 
+0000a9 f421                      BRNE CATORCE1
+0000aa 9a2d                      SBI PORTB, PB5 ; PRIMER BIT
+0000ab 982c                      CBI PORTB, PB4 ; SEGUNDO BIT 
+0000ac 9a2b                      SBI PORTB, PB3 ; TERCER BIT
+0000ad 9a2a                      SBI PORTB, PB2 ; CUARTO BIT
                                  CATORCE1:
-0000aa 302e                      CPI R18, 14; COMPARA SI ES CATORCE 
-0000ab f421                      BRNE QUINCE1
-0000ac 982d                      CBI PORTB, PB5 ; PRIMER BIT
-0000ad 9a2c                      SBI PORTB, PB4 ; SEGUNDO BIT 
-0000ae 9a2b                      SBI PORTB, PB3 ; TERCER BIT
-0000af 9a2a                      SBI PORTB, PB2 ; CUARTO BIT
+0000ae 302e                      CPI R18, 14; COMPARA SI ES CATORCE 
+0000af f421                      BRNE QUINCE1
+0000b0 982d                      CBI PORTB, PB5 ; PRIMER BIT
+0000b1 9a2c                      SBI PORTB, PB4 ; SEGUNDO BIT 
+0000b2 9a2b                      SBI PORTB, PB3 ; TERCER BIT
+0000b3 9a2a                      SBI PORTB, PB2 ; CUARTO BIT
                                  QUINCE1:
-0000b0 302f                      CPI R18, 15; COMPARA SI ES 15 
-0000b1 f421                      BRNE CERO1
-0000b2 9a2d                      SBI PORTB, PB5 ; PRIMER BIT
-0000b3 9a2c                      SBI PORTB, PB4 ; SEGUNDO BIT 
-0000b4 9a2b                      SBI PORTB, PB3 ; TERCER BIT
-0000b5 9a2a                      SBI PORTB, PB2 ; CUARTO BIT
+0000b4 302f                      CPI R18, 15; COMPARA SI ES 15 
+0000b5 f421                      BRNE CERO1
+0000b6 9a2d                      SBI PORTB, PB5 ; PRIMER BIT
+0000b7 9a2c                      SBI PORTB, PB4 ; SEGUNDO BIT 
+0000b8 9a2b                      SBI PORTB, PB3 ; TERCER BIT
+0000b9 9a2a                      SBI PORTB, PB2 ; CUARTO BIT
                                  CERO1:
-0000b6 3020                      CPI R18, 0; COMPARA SI ES CERO 
-0000b7 f421                      BRNE REGRESO
-0000b8 982d                      CBI PORTB, PB5 ; PRIMER BIT
-0000b9 982c                      CBI PORTB, PB4 ; SEGUNDO BIT 
-0000ba 982b                      CBI PORTB, PB3 ; TERCER BIT
-0000bb 982a                      CBI PORTB, PB2 ; CUARTO BIT
+0000ba 3020                      CPI R18, 0; COMPARA SI ES CERO 
+0000bb f421                      BRNE REGRESO
+0000bc 982d                      CBI PORTB, PB5 ; PRIMER BIT
+0000bd 982c                      CBI PORTB, PB4 ; SEGUNDO BIT 
+0000be 982b                      CBI PORTB, PB3 ; TERCER BIT
+0000bf 982a                      CBI PORTB, PB2 ; CUARTO BIT
                                  REGRESO:
-0000bc 9508                      RET
+0000c0 9508                      RET
                                  
+                                 ACTUALIZAR2:
+0000c1 3031                      CPI R19, 1; COMPARA SI ES UNO
+0000c2 f441                      BRNE DOS2
+0000c3 9829                      CBI PORTB, PB1 ; E
+0000c4 9828                      CBI PORTB, PB0 ; D
+0000c5 9a5f                      SBI PORTD, PD7 ; C
+0000c6 985e                      CBI PORTD, PD6 ; DP
+0000c7 985d                      CBI PORTD, PD5 ; G
+0000c8 985c                      CBI PORTD, PD4 ; F
+0000c9 985b                      CBI PORTD, PD3 ; A
+0000ca 9a5a                      SBI PORTD, PD2 ; B
+                                 DOS2:
+0000cb 3032                      CPI R19, 2; COMPARA SI ES DOS
+0000cc f441                      BRNE TRES2
+0000cd 9a29                      SBI PORTB, PB1 ; E
+0000ce 9a28                      SBI PORTB, PB0 ; D
+0000cf 985f                      CBI PORTD, PD7 ; C
+0000d0 985e                      CBI PORTD, PD6 ; DP
+0000d1 9a5d                      SBI PORTD, PD5 ; G
+0000d2 985c                      CBI PORTD, PD4 ; F
+0000d3 9a5b                      SBI PORTD, PD3 ; A
+0000d4 9a5a                      SBI PORTD, PD2 ; B
+                                 TRES2:
+0000d5 3033                      CPI R19, 3; COMPARA SI ES TRES
+0000d6 f441                      BRNE CUATRO2
+0000d7 9829                      CBI PORTB, PB1 ; E
+0000d8 9a28                      SBI PORTB, PB0 ; D
+0000d9 9a5f                      SBI PORTD, PD7 ; C
+0000da 985e                      CBI PORTD, PD6 ; DP
+0000db 9a5d                      SBI PORTD, PD5 ; G
+0000dc 9a5c                      SBI PORTD, PD4 ; F
+0000dd 985b                      CBI PORTD, PD3 ; A
+0000de 9a5a                      SBI PORTD, PD2 ; B
+                                 CUATRO2:
+0000df 3034                      CPI R19, 4; COMPARA SI ES CUATRO
+0000e0 f441                      BRNE CINCO2
+0000e1 9829                      CBI PORTB, PB1 ; E
+0000e2 9828                      CBI PORTB, PB0 ; D
+0000e3 9a5f                      SBI PORTD, PD7 ; C
+0000e4 985e                      CBI PORTD, PD6 ; DP
+0000e5 9a5d                      SBI PORTD, PD5 ; G
+0000e6 9a5c                      SBI PORTD, PD4 ; F
+0000e7 985b                      CBI PORTD, PD3 ; A
+0000e8 9a5a                      SBI PORTD, PD2 ; B
+                                 CINCO2:
+0000e9 3035                      CPI R19, 5; COMPARA SI ES CINCO
+0000ea f441                      BRNE SEIS2
+0000eb 9829                      CBI PORTB, PB1 ; E
+0000ec 9a28                      SBI PORTB, PB0 ; D
+0000ed 9a5f                      SBI PORTD, PD7 ; C
+0000ee 985e                      CBI PORTD, PD6 ; DP
+0000ef 9a5d                      SBI PORTD, PD5 ; G
+0000f0 9a5c                      SBI PORTD, PD4 ; F
+0000f1 9a5b                      SBI PORTD, PD3 ; A
+0000f2 985a                      CBI PORTD, PD2 ; B
+                                 SEIS2:
+0000f3 3036                      CPI R19, 6; COMPARA SI ES SEIS
+0000f4 f441                      BRNE SIETE2
+0000f5 9a29                      SBI PORTB, PB1 ; E
+0000f6 9a28                      SBI PORTB, PB0 ; D
+0000f7 9a5f                      SBI PORTD, PD7 ; C
+0000f8 985e                      CBI PORTD, PD6 ; DP
+0000f9 985d                      CBI PORTD, PD5 ; G
+0000fa 9a5c                      SBI PORTD, PD4 ; F
+0000fb 9a5b                      SBI PORTD, PD3 ; A
+0000fc 985a                      CBI PORTD, PD2 ; B
+                                 SIETE2:
+0000fd 3037                      CPI R19, 7; COMPARA SI ES SIETE
+0000fe f441                      BRNE OCHO2
+0000ff 9829                      CBI PORTB, PB1 ; E
+000100 9828                      CBI PORTB, PB0 ; D
+000101 9a5f                      SBI PORTD, PD7 ; C
+000102 985e                      CBI PORTD, PD6 ; DP
+000103 9a5d                      SBI PORTD, PD5 ; G
+000104 985c                      CBI PORTD, PD4 ; F
+000105 9a5b                      SBI PORTD, PD3 ; A
+000106 9a5a                      SBI PORTD, PD2 ; B
+                                 OCHO2:
+000107 3038                      CPI R19, 8; COMPARA SI ES OCHO
+000108 f441                      BRNE NUEVE2
+000109 9a29                      SBI PORTB, PB1 ; E
+00010a 9a28                      SBI PORTB, PB0 ; D
+00010b 9a5f                      SBI PORTD, PD7 ; C
+00010c 985e                      CBI PORTD, PD6 ; DP
+00010d 9a5d                      SBI PORTD, PD5 ; G
+00010e 9a5c                      SBI PORTD, PD4 ; F
+00010f 9a5b                      SBI PORTD, PD3 ; A
+000110 9a5a                      SBI PORTD, PD2 ; B
+                                 NUEVE2:
+000111 3039                      CPI R19, 9; COMPARA SI ES NUEVE
+000112 f441                      BRNE DIEZ2
+000113 9829                      CBI PORTB, PB1 ; E
+000114 9828                      CBI PORTB, PB0 ; D
+000115 9a5f                      SBI PORTD, PD7 ; C
+000116 985e                      CBI PORTD, PD6 ; DP
+000117 9a5d                      SBI PORTD, PD5 ; G
+000118 9a5c                      SBI PORTD, PD4 ; F
+000119 9a5b                      SBI PORTD, PD3 ; A
+00011a 9a5a                      SBI PORTD, PD2 ; B
+                                 DIEZ2:
+00011b 303a                      CPI R19, 10; COMPARA SI ES DIEZ
+00011c f441                      BRNE ONCE2
+00011d 9a29                      SBI PORTB, PB1 ; E
+00011e 9828                      CBI PORTB, PB0 ; D
+00011f 9a5f                      SBI PORTD, PD7 ; C
+000120 985e                      CBI PORTD, PD6 ; DP
+000121 9a5d                      SBI PORTD, PD5 ; G
+000122 9a5c                      SBI PORTD, PD4 ; F
+000123 9a5b                      SBI PORTD, PD3 ; A
+000124 9a5a                      SBI PORTD, PD2 ; B
+                                 ONCE2:
+000125 303b                      CPI R19, 11; COMPARA SI ES ONCE
+000126 f441                      BRNE DOCE2
+000127 9a29                      SBI PORTB, PB1 ; E
+000128 9a28                      SBI PORTB, PB0 ; D
+000129 9a5f                      SBI PORTD, PD7 ; C
+00012a 985e                      CBI PORTD, PD6 ; DP
+00012b 9a5d                      SBI PORTD, PD5 ; G
+00012c 9a5c                      SBI PORTD, PD4 ; F
+00012d 985b                      CBI PORTD, PD3 ; A
+00012e 985a                      CBI PORTD, PD2 ; B
+                                 DOCE2:
+00012f 303c                      CPI R19, 12; COMPARA SI ES DOCE
+000130 f441                      BRNE TRECE2
+000131 9a29                      SBI PORTB, PB1 ; E
+000132 9a28                      SBI PORTB, PB0 ; D
+000133 985f                      CBI PORTD, PD7 ; C
+000134 985e                      CBI PORTD, PD6 ; DP
+000135 985d                      CBI PORTD, PD5 ; G
+000136 9a5c                      SBI PORTD, PD4 ; F
+000137 9a5b                      SBI PORTD, PD3 ; A
+000138 985a                      CBI PORTD, PD2 ; B
+                                 TRECE2:
+000139 303d                      CPI R19, 13; COMPARA SI ES TRECE
+00013a f441                      BRNE CATORCE2
+00013b 9a29                      SBI PORTB, PB1 ; E
+00013c 9a28                      SBI PORTB, PB0 ; D
+00013d 9a5f                      SBI PORTD, PD7 ; C
+00013e 985e                      CBI PORTD, PD6 ; DP
+00013f 9a5d                      SBI PORTD, PD5 ; G
+000140 985c                      CBI PORTD, PD4 ; F
+000141 985b                      CBI PORTD, PD3 ; A
+000142 9a5a                      SBI PORTD, PD2 ; B
+                                 CATORCE2:
+000143 303e                      CPI R19, 14; COMPARA SI ES CATORCE
+000144 f441                      BRNE QUINCE2
+000145 9a29                      SBI PORTB, PB1 ; E
+000146 9a28                      SBI PORTB, PB0 ; D
+000147 985f                      CBI PORTD, PD7 ; C
+000148 985e                      CBI PORTD, PD6 ; DP
+000149 9a5d                      SBI PORTD, PD5 ; G
+00014a 9a5c                      SBI PORTD, PD4 ; F
+00014b 9a5b                      SBI PORTD, PD3 ; A
+00014c 985a                      CBI PORTD, PD2 ; B
+                                 QUINCE2:
+00014d 303f                      CPI R19, 15; COMPARA SI ES 15
+00014e f441                      BRNE CERO2
+00014f 9829                      CBI PORTB, PB1 ; E
+000150 9828                      CBI PORTB, PB0 ; D
+000151 9a5f                      SBI PORTD, PD7 ; C
+000152 985e                      CBI PORTD, PD6 ; DP
+000153 9a5d                      SBI PORTD, PD5 ; G
+000154 9a5c                      SBI PORTD, PD4 ; F
+000155 9a5b                      SBI PORTD, PD3 ; A
+000156 985a                      CBI PORTD, PD2 ; B
+                                 CERO2:
+000157 3030                      CPI R19, 0; COMPARA SI ES CERO
+000158 f441                      BRNE REGRESO2
+000159 9a29                      SBI PORTB, PB1 ; E
+00015a 9a28                      SBI PORTB, PB0 ; D
+00015b 9a5f                      SBI PORTD, PD7 ; C
+00015c 985e                      CBI PORTD, PD6 ; DP
+00015d 985d                      CBI PORTD, PD5 ; G
+00015e 9a5c                      SBI PORTD, PD4 ; F
+00015f 9a5b                      SBI PORTD, PD3 ; A
+000160 9a5a                      SBI PORTD, PD2 ; B
+                                 REGRESO2:
 
 
 RESOURCE USE INFORMATION
@@ -1361,37 +1542,37 @@ counted separately from r26..r31 here.
 "ATmega328P" register use summary:
 x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:  10 r17:   6 r18:  20 r19:   0 r20:   0 
+r13:   0 r14:   0 r15:   0 r16:  10 r17:   6 r18:  22 r19:  24 r20:   0 
 r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
-r29:   7 r30:   7 r31:   3 
-Registers used: 6 out of 35 (17.1%)
+r29:   7 r30:   1 r31:   3 
+Registers used: 7 out of 35 (20.0%)
 
 "ATmega328P" instruction use summary:
 .lds  :   0 .sts  :   0 adc   :   0 add   :   2 adiw  :   0 and   :   0 
 andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
-brcc  :   0 brcs  :   0 break :   0 breq  :   5 brge  :   0 brhc  :   0 
+brcc  :   0 brcs  :   0 break :   0 breq  :   7 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
-brne  :  18 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
-brvs  :   0 bset  :   0 bst   :   0 call  :   3 cbi   :  47 cbr   :   0 
+brne  :  34 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
+brvs  :   0 bset  :   0 bst   :   0 call  :   3 cbi   :  98 cbr   :   0 
 clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   1 cls   :   0 
-clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
-cpi   :  23 cpse  :   0 dec   :   0 eor   :   0 fmul  :   0 fmuls :   0 
+clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   2 cpc   :   0 
+cpi   :  39 cpse  :   0 dec   :   0 eor   :   0 fmul  :   0 fmuls :   0 
 fmulsu:   0 icall :   0 ijmp  :   0 in    :   1 inc   :   4 jmp   :   0 
 ld    :   0 ldd   :   0 ldi   :  13 lds   :   0 lpm   :   0 lsl   :   0 
 lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
 neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :   5 pop   :   0 
-push  :   0 rcall :   0 ret   :  13 reti  :   0 rjmp  :   1 rol   :   0 
-ror   :   0 sbc   :   0 sbci  :   0 sbi   :  48 sbic  :   0 sbis  :   0 
+push  :   0 rcall :   0 ret   :  14 reti  :   0 rjmp  :   1 rol   :   0 
+ror   :   0 sbc   :   0 sbci  :   0 sbi   : 125 sbic  :   0 sbis  :   0 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
 sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   0 
 sub   :   0 subi  :   2 swap  :   0 tst   :   0 wdr   :   0 
-Instructions used: 15 out of 113 (13.3%)
+Instructions used: 16 out of 113 (14.2%)
 
 "ATmega328P" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x00017a    378      0    378   32768   1.2%
+[.cseg] 0x000000 0x0002c4    708      0    708   32768   2.2%
 [.dseg] 0x000100 0x000100      0      0      0    2048   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 
