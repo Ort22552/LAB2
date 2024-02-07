@@ -1,19 +1,19 @@
 <ASSEMBLER_INFO>
  <VERSION>2.2.8</VERSION>
  <DEVICE>"ATmega328P"</DEVICE>
- <WORKING_DIR>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\Debug</WORKING_DIR>
+ <WORKING_DIR>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\Debug</WORKING_DIR>
  <INCLUDE_PATH>
   <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc</DIR>
   <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
   <DIR></DIR>
  </INCLUDE_PATH>
- <SOURCE_FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</SOURCE_FILE>
+ <SOURCE_FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</SOURCE_FILE>
  <INCLUDED_FILES>
   <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m328Pdef.inc</FILE>
   <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\M328PDEF.inc</FILE>
  </INCLUDED_FILES>
  <OBJECT_FILES>
-  <FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\Debug\AssemblerApplication1.obj</FILE>
+  <FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\Debug\AssemblerApplication1.obj</FILE>
  </OBJECT_FILES>
  <HEX_FILES>
   <FILE>AssemblerApplication1.hex</FILE>
@@ -23,35 +23,36 @@
   <FILE>AssemblerApplication1.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <SETUP><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>28</LINE></SETUP>
-  <CONFIGURARTIMER0><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>140</LINE></CONFIGURARTIMER0>
-  <LOOP><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>73</LINE></LOOP>
-  <CONTADOR><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>148</LINE></CONTADOR>
-  <ACTUALIZAR1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>199</LINE></ACTUALIZAR1>
-  <REP><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>153</LINE></REP>
-  <SUMAR1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>157</LINE></SUMAR1>
-  <REINICIAR1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>162</LINE></REINICIAR1>
-  <SUMAR2><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>166</LINE></SUMAR2>
-  <REINICIAR2><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>171</LINE></REINICIAR2>
-  <SUMARTOTAL><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>175</LINE></SUMARTOTAL>
-  <RESTAR1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>181</LINE></RESTAR1>
-  <REINICIAR3><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>186</LINE></REINICIAR3>
-  <RESTAR2><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>190</LINE></RESTAR2>
-  <REINICIAR4><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>195</LINE></REINICIAR4>
-  <DOS1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>206</LINE></DOS1>
-  <TRES1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>213</LINE></TRES1>
-  <CUATRO1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>220</LINE></CUATRO1>
-  <CINCO1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>227</LINE></CINCO1>
-  <SEIS1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>234</LINE></SEIS1>
-  <SIETE1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>241</LINE></SIETE1>
-  <OCHO1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>248</LINE></OCHO1>
-  <NUEVE1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>255</LINE></NUEVE1>
-  <DIEZ1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>262</LINE></DIEZ1>
-  <ONCE1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>269</LINE></ONCE1>
-  <DOCE1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>276</LINE></DOCE1>
-  <TRECE1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>283</LINE></TRECE1>
-  <CATORCE1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>290</LINE></CATORCE1>
-  <QUINCE1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>297</LINE></QUINCE1>
-  <CERO1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>304</LINE></CERO1>
+  <SETUP><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>28</LINE></SETUP>
+  <CONFIGURARTIMER0><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>140</LINE></CONFIGURARTIMER0>
+  <LOOP><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>73</LINE></LOOP>
+  <CONTADOR><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>148</LINE></CONTADOR>
+  <ACTUALIZAR1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>199</LINE></ACTUALIZAR1>
+  <REP><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>153</LINE></REP>
+  <SUMAR1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>157</LINE></SUMAR1>
+  <REINICIAR1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>162</LINE></REINICIAR1>
+  <SUMAR2><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>166</LINE></SUMAR2>
+  <REINICIAR2><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>171</LINE></REINICIAR2>
+  <SUMARTOTAL><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>175</LINE></SUMARTOTAL>
+  <RESTAR1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>181</LINE></RESTAR1>
+  <REINICIAR3><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>186</LINE></REINICIAR3>
+  <RESTAR2><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>190</LINE></RESTAR2>
+  <REINICIAR4><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>195</LINE></REINICIAR4>
+  <DOS1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>206</LINE></DOS1>
+  <TRES1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>213</LINE></TRES1>
+  <CUATRO1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>220</LINE></CUATRO1>
+  <CINCO1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>227</LINE></CINCO1>
+  <SEIS1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>234</LINE></SEIS1>
+  <SIETE1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>241</LINE></SIETE1>
+  <OCHO1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>248</LINE></OCHO1>
+  <NUEVE1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>255</LINE></NUEVE1>
+  <DIEZ1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>262</LINE></DIEZ1>
+  <ONCE1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>269</LINE></ONCE1>
+  <DOCE1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>276</LINE></DOCE1>
+  <TRECE1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>283</LINE></TRECE1>
+  <CATORCE1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>290</LINE></CATORCE1>
+  <QUINCE1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>297</LINE></QUINCE1>
+  <CERO1><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>304</LINE></CERO1>
+  <REGRESO><FILE>C:\Users\PC\Documents\Atmel Studio\7.0\LAB2\LAB2\main.asm</FILE><LINE>311</LINE></REGRESO>
  </LABELS>
 </ASSEMBLER_INFO>
